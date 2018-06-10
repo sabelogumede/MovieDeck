@@ -1,0 +1,27 @@
+
+<!-- card-columns -->
+<div class="card-columns">
+    <!-- loop through our movies from db - display on the view  -->
+    {{#each movies}}
+
+            <div class="card-body mb-3" style="max-width: 20rem;">
+                <!-- <img class="card-img-top" src="marvel-black-panther.jpg" alt="Card image cap"> -->
+                <h6 class="card-title">{{title}}</h6>
+                <p class="card-text">{{description}}</p>
+                <span class="badge badge-light">{{year}}</span>
+                <span class="badge badge-info">{{genre}}</span>
+                <!-- edit button -->
+                <a class="btn btn-dark btn-block mb-2" href="/movies/edit/{{id}}">Edit</a>
+                <!-- <button type="button" class="btn btn-default" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </button> -->
+                <form method="post" action="/movies/{{id}}?_method=DELETE">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="submit" class="btn btn-danger btn-block" value="Delete">
+                </form>
+            </div>
+
+    {{else}}
+      <p>There are no movies listed</p>
+    {{/each}}
+</div>
