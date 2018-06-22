@@ -1,11 +1,18 @@
+<style media="screen">
+.form-group {
+    margin-bottom: 0;
+
+}
+</style>
 <!-- categoriy filter -->
 <div class="form-group">
-    <a class="btn btn-primary btn-sm mb-2" href="/movies/Action" value="Action">Action</a>
-    <a class="btn btn-primary btn-sm mb-2" href="/movies/Comedy" value="Comendy">Comedy</a>
-    <a class="btn btn-primary btn-sm mb-2" href="/movies/Drama" value="Drama">Drama</a>
+    <a class="btn btn-dark btn-sm mb-2" href="/movies" value="Action">All</a>
+    <a class="btn btn-dark btn-sm mb-2" href="/movies/Action" value="Action">Action</a>
+    <a class="btn btn-dark btn-sm mb-2" href="/movies/Comedy" value="Comendy">Comedy</a>
+    <a class="btn btn-dark btn-sm mb-2" href="/movies/Drama" value="Drama">Drama</a>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#exampleModal">
-      Other options
+    <button type="button" class="btn btn-dark btn-sm mb-2" data-toggle="modal" data-target="#exampleModal">
+      More Options
     </button>
 </div>
 
@@ -31,6 +38,7 @@
             <li class="list-group-item" href="/movies/Sci-Fi">Sci-Fi</li>
             <li class="list-group-item" href="/movies/War">War</li>
           </ul>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -40,27 +48,26 @@
 </div>
 
 <!-- card-columns -->
-<div class="card-columns">
+<div class="row mt-5">
     <!-- loop through our movies from db - display on the view  -->
     {{#each movies}}
 
-            <div class="card mb-3" style="max-width: 15rem;">
-                <!-- <img class="card-img-top" src="marvel-black-panther.jpg" alt="Card image cap"> -->
-                <div class="card-block">
-                    <h6 class="card-title">{{title}}</h6>
-                    <p class="card-text">{{description}}</p>
-                    <span class="badge badge-light">{{year}}</span>
-                    <span class="badge badge-info">{{genre}}</span>
-                    <!-- edit button -->
-                    <a class="btn btn-dark btn-block mb-2" href="/movies/edit/{{id}}">Edit</a>
-                    <!-- <button type="button" class="btn btn-default" aria-label="Left Align">
-                      <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-                    </button> -->
-                    <form method="post" action="/movies/{{id}}?_method=DELETE">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input type="submit" class="btn btn-danger btn-block" value="Delete">
-                    </form>
-                </div>
+            <div class="bx card col-6 col-sm-4 col-md-3">
+                <img class="img-fluid card-img-top" src="/img/marvel-black-panther.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h6 class="card-title">{{title}}</h6>
+                        <span class="badge badge-light">{{year}}</span>
+                        <span class="badge badge-info">{{genre}}</span>
+            <!-- ************************************************************************* -->
+                        <!-- <p class="card-text">{{description}}</p> -->
+                        <!-- edit button -->
+                        <a class="Edit btn btn-dark btn-sm  d-inline" href="/movies/edit/{{id}}">Edit</a>
+                        <!-- delete element Id -->
+                        <form class="d-inline" method="post" action="/movies/{{id}}?_method=DELETE">
+                            <input type="hidden" name="_method" value="Delete">
+                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                        </form>
+                    </div>
             </div>
 
     {{else}}

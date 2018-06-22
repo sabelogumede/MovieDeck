@@ -1,5 +1,78 @@
-<div class="jumbotron text-center">
-    <h1 class="display">{{title}}</h1>
-    <p>Watch the latest movies on the Go with Us!</p>
+<style>
+
+    body{
+        height: 100vh;
+        background-color: #000000;
+    }
+    .jumbotron {
+        height: 100vh;
+        width: 97.7vw;
+        /* background-image: url("img/blk.jpg"); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+    .JumbotronImg {
+        background-image: url("img/moviescover.jpeg");
+        background-size: cover;
+        /* height: 100vh; */
+    }
+    .container {
+        margin-left: 0px;
+    }
+    .jumbotron h1, p {
+        margin-left: auto;
+    }
+    .jumbotron h1 {
+        font-weight: bold;
+    }
+
+    /* Small devices (landscape phones, 544px and up) */
+    @media (max-width: 544px) {
+        .JumbotronImg {
+            /* background-image: url("img/moviescover2.jpg"); */
+            /* width: 100%; */
+        }
+        .container {
+            /* padding-left: 0;
+            padding-left: 0; */
+        }
+        .col-6 {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+    }
+
+    @media (max-width: 414px) {
+        .col-6 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .JumbotronImg {
+            /* background-image: url("img/moviescover2.jpg"); */
+            /* width: 100%; */
+            padding: 0 5px;
+            /* height: 50vh; */
+        }
+
+
+
+    }
+
+</style>
+
+
+<!-- <div class="jumbotron text-white JumbotronImg text-center">
+    <h1 class="display-1">{{title}}</h1>
+    <p class="lead">Watch the latest movies on the Go with Us</p>
     <a href="./movies" class="btn btn-dark btn-lg">Check our stock!</a>
+</div> -->
+
+<div class="jumbotron jumbotron-fluid JumbotronImg";>
+  <div class="container">
+    <h1 class="display-4 text-white">{{title}}</h1>
+    <p class="lead text-white text-white">Watch Big Movies Everywhere!</p>
+    <a href="./movies" class="btn btn-warning btn-lg">Check our stock!</a>
+  </div>
 </div>

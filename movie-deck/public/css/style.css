@@ -1,0 +1,80 @@
+.container {
+    margin-left: auto;
+}
+
+.bx .Edit  {
+    padding: 6.1px;
+}
+
+.card-body {
+    padding: 2px;
+    margin: 0;
+}
+
+.card-body h6 {
+    font-size: 1em;
+    margin-bottom: 2px;
+}
+
+
+
+/* Small devices (landscape phones, 544px and up) */
+@media (max-width: 544px) {
+
+.navbar .navbar-brand {
+    font-size: 1em;important
+}
+
+.display-4 {
+    font-size: 2.4rem;
+}
+.lead {
+    font-size: 1rem;
+}
+.btn-lg {
+    font-size: 1rem;
+}
+.img-fluid {
+    max-width: 90%;
+}
+
+.card-body {
+    padding: 2px;
+    margin: 0;
+}
+.card {
+    padding: 0px;
+}
+.card-body h6 {
+    font-size: 0.9em;
+    margin-bottom: 2px;
+}
+.form-group {
+    margin-bottom: 0;
+
+}
+
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 2px;
+        margin: 0;
+    }
+    .card-body h6 {
+        font-size: 0.9em;
+        margin-bottom: 2px;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

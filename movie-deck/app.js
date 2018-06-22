@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
@@ -7,7 +8,7 @@ const bodyParser = require('body-parser');
 const querymen = require('querymen');
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 const mongoose = require('mongoose');
-//comment
+
 const app = express();
 
 // Map global promise - get rid of warning
@@ -32,6 +33,9 @@ app.set('view engine', 'handlebars');
 // Body parser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse application/json
+
+// Static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // override with POST having ? method-DELETE - Middleware
 app.use(methodOverride('_method'));
@@ -58,7 +62,7 @@ app.use(function(req, res, next){
 
 // Index - Route
 app.get('/', (req, res) => {
-    const title = 'Welcome';
+    const title = 'Welcome to MovieDeck';
     res.render('index', {
         title: title
     });
@@ -195,17 +199,29 @@ app.get('/movies/:genre', (req, res) => {
     });
 });
 
-
 // Delete-Movie - Route
-app.delete('/movies/:id', (req, res) => {
+app.delete('/movies/:id', urlencodedParser, (req, res) => {
+
+    console.log(req.body.id);
+
+    const idn = req.params.id;
+    console.log(idn);
     Movie.remove({_id: req.params.id})
         .then(() => {
             // flash msg
             req.flash('success_msg', 'Movie has been removed')
             res.redirect('/movies')
         });
+});
 
-
+// Delete All
+app.delete('/movies', (req, res) => {
+    Movie.remove({})
+     .then(() => {
+        //flash Msg
+        req.flash('success_msg', 'You have deleted all your movies')
+        res.redirect('/movies')
+    });
 });
 
 // ****************************************
@@ -219,13 +235,6 @@ app.get('/register', (req, res) => {
 app.get('/login', (req, res) => {
     res.send('LOGIN')
 })
-
-
-// *****************************************
-
-
-
-
 
 // *****************************************
 
